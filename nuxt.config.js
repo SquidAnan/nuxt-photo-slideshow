@@ -1,7 +1,7 @@
 export default {
   components: true,
   head: {
-    title: "Nuxt Image Example",
+    title: "Nuxt Photo Slideshow",
     htmlAttrs: {
       lang: "en",
     },
