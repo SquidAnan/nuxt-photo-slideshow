@@ -1,61 +1,84 @@
 <template>
   <main>
-    <div class="flex flex-col items-stretch h-screen bg-neutral-800 sm:pt-0">
+    <div class="flex flex-col items-stretch h-screen bg-neutral-800">
       <div
-        class="grow-0 shrink-0 basis-auto sm:px-6 lg:px-8 py-8 text-4xl text-neutral-200"
+        class="grow-0 shrink-0 basis-auto sm:px-6 lg:px-8 py-8
+          hidden sm:block sm:text-4xl text-neutral-200"
       >
         2023-02-05-NYCU
       </div>
       <div
-        class="relative grow-0 shrink-1 basis-auto flex items-center justify-center h-full min-h-0 m-14 mt-0"
+        class="relative grow-0 shrink-1 basis-auto
+          flex items-center justify-center h-full min-h-0 sm:m-14"
       >
-        <Transition name="fade">
-          <img
-            src="~/assets/IMG_4618.jpg"
+        <!-- <Flicking class=" overflow-hidden">
+          <div class="inline-block h-60 w-60 bg-gray-100" key="1">1</div>
+          <div class="inline-block h-60 w-60 bg-gray-200" key="2">2</div>
+        </Flicking> -->
+        <Flicking class="h-full overflow-hidden">
+          <nuxt-img
+            src="/IMG_4618-low.jpg"
             alt="img"
-            class="absolute max-h-full shadow-lg rounded-sm"
+            class="max-h-[inherit] shadow-lg rounded-sm"
             v-show="n+1==1"
             key="img1"
           />
-          
-          <img
-              src="~/assets/IMG_4619.jpg"
+          <!-- <nuxt-img
+              src="/IMG_4619-low.jpg"
               alt="img"
               class="absolute max-h-full shadow-lg rounded-sm"
               v-show="n+1==2"
               key="img2"
           />
-          <!-- <img
-            src="~/assets/IMG_4623.jpg"
+          <nuxt-img
+            src="/IMG_4623-low.jpg"
             alt="img"
             class="absolute max-h-full shadow-lg rounded-sm"
             v-show="n+1==3"
             key="img3"
           />
-          <img
-            src="~/assets/IMG_4626.jpg"
+          <nuxt-img
+            src="/IMG_4626-low.jpg"
             alt="img"
             class="absolute max-h-full shadow-lg rounded-sm"
             v-show="n+1==4"
             key="img4"
           />
-          <img
-            src="~/assets/IMG_4630.jpg"
+          <nuxt-img
+            src="/IMG_4630-low.jpg"
             alt="img"
             class="absolute max-h-full shadow-lg rounded-sm"
             v-show="n+1==5"
             key="img5"
           /> -->
-        </Transition>
+        </Flicking>
 
-        <div class="absolute right-0 bottom-0 text-base text-neutral-200"> {{photos[n].number}}/5 </div>
-        <button type="button" class="absolute right-0 bg-[rgba(0,0,0,0.3)] rounded-lg transition duration-300 hover:bg-[rgba(0,0,0,0.5)]" @click="next_photo">
-          <svg viewBox="0 0 24 24" height="80" width="80" fill="none" stroke-linecap="round" stroke-linejoin="round" class="stroke-neutral-200 transition duration-300 hover:translate-x-1">
+        <div class="absolute right-0 bottom-0
+          text-base text-neutral-200">
+          {{photos[n].number}}/5
+        </div>
+        <button
+          type="button"
+          class="absolute right-0 bg-[rgba(0,0,0,0.3)] rounded-lg
+            transition duration-300 hover:bg-[rgba(0,0,0,0.5)]
+            hidden lg:block"
+          @click="next_photo">
+          <svg
+            viewBox="0 0 24 24" height="80" width="80"
+            fill="none" stroke-linecap="round" stroke-linejoin="round"
+            class="stroke-neutral-200 transition duration-300 hover:translate-x-1">
             <polyline points="9 18 15 12 9 6"></polyline>
           </svg>
         </button>
-        <button type="button" class="absolute left-0 bg-[rgba(0,0,0,0.3)] rounded-lg transition duration-300 hover:bg-[rgba(0,0,0,0.5)] rotate-180" @click="previous_photo">
-          <svg viewBox="0 0 24 24" height="80" width="80" fill="none" stroke-linecap="round" stroke-linejoin="round" class="stroke-neutral-200 transition duration-300 hover:translate-x-1">
+        <button
+          type="button"
+          class="absolute left-0 bg-[rgba(0,0,0,0.3)] rounded-lg
+            transition duration-300 hover:bg-[rgba(0,0,0,0.5)]
+            hidden lg:block rotate-180"
+          @click="previous_photo">
+          <svg viewBox="0 0 24 24" height="80" width="80"
+            fill="none" stroke-linecap="round" stroke-linejoin="round"
+            class="stroke-neutral-200 transition duration-300 hover:translate-x-1">
             <polyline points="9 18 15 12 9 6"></polyline>
           </svg>
         </button>
@@ -65,7 +88,8 @@
 </template>
 
 <script>
-import { version } from 'vue'
+import { Flicking } from "@egjs/vue-flicking";
+
 export default {
   data() {
     return {
@@ -79,7 +103,8 @@ export default {
         {name:'IMG_4623.jpg', number:3},
         {name:'IMG_4626.jpg', number:4},
         {name:'IMG_4630.jpg', number:5},
-      ]
+      ],
+      list: [0, 1, 2, 3, 4]
     }
   },
   methods: {
@@ -93,25 +118,33 @@ export default {
     }
   },
   computed: {
-    get_photo_name() {
-      // return require(this.path + this.photos[this.n].name)
-      let s = this.path + this.photos[this.n].name
-      console.log(s)
-      return require(`${this.path}IMG_4618.jpg`)
-    }
+  },
+  components: {
+    Flicking: Flicking
   }
 };
 </script>
 
 <style scoped>
 
-.fade-enter-active, .fade-leave-active{
-  transition: all .3s ease;
+/* .fade-enter-active, .fade-leave-active{
+  transition: opacity .5s ease;
 }
-
 .fade-enter, .fade-leave-to{
   opacity: 0;
 }
+.c1 {
+  animation: go 2s;
+}
+@keyframes go {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+} */
+
 
 </style>
 

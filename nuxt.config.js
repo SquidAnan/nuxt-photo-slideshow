@@ -15,4 +15,5 @@ export default {
   image: {
     domains: ["https://images.unsplash.com", "https://source.unsplash.com"],
   },
+  target: 'static'
 };
