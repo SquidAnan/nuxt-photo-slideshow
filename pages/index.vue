@@ -9,27 +9,22 @@
       </div>
       <div
         class="relative grow-0 shrink-1 basis-auto
-          flex items-center justify-center h-full min-h-0 sm:m-14"
+          flex items-center justify-center h-full min-h-0 m-10 sm:m-14"
       >
-        <!-- <Flicking class=" overflow-hidden">
-          <div class="inline-block h-60 w-60 bg-gray-100" key="1">1</div>
-          <div class="inline-block h-60 w-60 bg-gray-200" key="2">2</div>
-        </Flicking> -->
         <Flicking class="h-full overflow-hidden">
           <nuxt-img
             src="/IMG_4618-low.jpg"
             alt="img"
-            class="max-h-[inherit] shadow-lg rounded-sm"
-            v-show="n+1==1"
+            class="inline-block max-h-full shadow-lg rounded-sm"
             key="img1"
           />
-          <!-- <nuxt-img
+          <nuxt-img
               src="/IMG_4619-low.jpg"
               alt="img"
-              class="absolute max-h-full shadow-lg rounded-sm"
-              v-show="n+1==2"
+              class="inline-block max-h-full shadow-lg rounded-sm"
               key="img2"
           />
+          <!--
           <nuxt-img
             src="/IMG_4623-low.jpg"
             alt="img"
@@ -127,24 +122,10 @@ export default {
 
 <style scoped>
 
-/* .fade-enter-active, .fade-leave-active{
-  transition: opacity .5s ease;
+/deep/ .flicking-camera { /* deep selector is used to select a child component's class */
+  height: 100%;
+  width: 200vw;
 }
-.fade-enter, .fade-leave-to{
-  opacity: 0;
-}
-.c1 {
-  animation: go 2s;
-}
-@keyframes go {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-} */
-
 
 </style>
 
