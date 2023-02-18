@@ -3,7 +3,7 @@
     <div class="flex flex-col items-stretch h-screen bg-neutral-800">
       <div
         class="grow-0 shrink-0 basis-auto sm:px-6 lg:px-8 py-8
-          hidden sm:block sm:text-4xl text-neutral-200"
+        hidden sm:block sm:text-4xl text-neutral-200"
       >
         2023-02-05-NYCU
       </div>
@@ -11,36 +11,36 @@
         class="relative grow-0 shrink-1 basis-auto
           flex items-center justify-center h-full min-h-0 m-0 sm:m-14"
       >
-        <Flicking class="h-full w-full overflow-hidden bg-neutral-700">
-          <div class="absolute bg-green-500 h-full w-full flex items-center justify-center">
+        <Flicking class="h-full w-full overflow-hidden">
+          <div class="absolute h-full w-full flex items-center justify-center">
             <nuxt-img
               src="/IMG_4618-low.jpg"
               alt="img"
               class="max-h-full max-w-full shadow-lg rounded-sm"
             />
           </div>
-          <div class="absolute left-[100%] bg-blue-500 h-full w-full flex items-center justify-center">
+          <div class="absolute left-[100%] h-full w-full flex items-center justify-center">
             <nuxt-img
               src="/IMG_4619-low.jpg"
               alt="img"
               class="max-h-full max-w-full shadow-lg rounded-sm"
             />
           </div>
-          <div class="absolute left-[200%] bg-yellow-500 h-full w-full flex items-center justify-center">
+          <div class="absolute left-[200%] h-full w-full flex items-center justify-center">
             <nuxt-img
               src="/IMG_4623-low.jpg"
               alt="img"
               class="max-h-full max-w-full shadow-lg rounded-sm"
             />
           </div>
-          <div class="absolute left-[300%] bg-red-500 h-full w-full flex items-center justify-center">
+          <div class="absolute left-[300%] h-full w-full flex items-center justify-center">
             <nuxt-img
               src="/IMG_4626-low.jpg"
               alt="img"
               class="max-h-full max-w-full shadow-lg rounded-sm"
             />
           </div>
-          <div class="absolute left-[400%] bg-orange-500 h-full w-full flex items-center justify-center">
+          <div class="absolute left-[400%] h-full w-full flex items-center justify-center">
             <nuxt-img
               src="/IMG_4630-low.jpg"
               alt="img"
