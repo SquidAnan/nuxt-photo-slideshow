@@ -9,43 +9,44 @@
       </div>
       <div
         class="relative grow-0 shrink-1 basis-auto
-          flex items-center justify-center h-full min-h-0 m-10 sm:m-14"
+          flex items-center justify-center h-full min-h-0 m-0 sm:m-14"
       >
         <Flicking class="h-full w-full overflow-hidden bg-neutral-700">
-          <div class="absolute bg-green-500 h-full w-full"></div>
-          <div class="absolute left-[100%] bg-blue-500 h-full w-full"></div>
-          <div class="absolute left-[200%] bg-yellow-500 h-full w-full"></div>
-          <div class="absolute left-[300%] bg-red-500 h-full w-full"></div>
-          <div class="absolute left-[400%] bg-orange-500 h-full w-full"></div>
-          <!-- 
-          
-          <nuxt-img
+          <div class="absolute bg-green-500 h-full w-full flex items-center justify-center">
+            <nuxt-img
+              src="/IMG_4618-low.jpg"
+              alt="img"
+              class="max-h-full max-w-full shadow-lg rounded-sm"
+            />
+          </div>
+          <div class="absolute left-[100%] bg-blue-500 h-full w-full flex items-center justify-center">
+            <nuxt-img
               src="/IMG_4619-low.jpg"
               alt="img"
-              class="inline-block max-h-full shadow-lg rounded-sm"
-              key="img2"
-          />
-          <nuxt-img
-            src="/IMG_4623-low.jpg"
-            alt="img"
-            class="absolute max-h-full shadow-lg rounded-sm"
-            v-show="n+1==3"
-            key="img3"
-          />
-          <nuxt-img
-            src="/IMG_4626-low.jpg"
-            alt="img"
-            class="absolute max-h-full shadow-lg rounded-sm"
-            v-show="n+1==4"
-            key="img4"
-          />
-          <nuxt-img
-            src="/IMG_4630-low.jpg"
-            alt="img"
-            class="absolute max-h-full shadow-lg rounded-sm"
-            v-show="n+1==5"
-            key="img5"
-          /> -->
+              class="max-h-full max-w-full shadow-lg rounded-sm"
+            />
+          </div>
+          <div class="absolute left-[200%] bg-yellow-500 h-full w-full flex items-center justify-center">
+            <nuxt-img
+              src="/IMG_4623-low.jpg"
+              alt="img"
+              class="max-h-full max-w-full shadow-lg rounded-sm"
+            />
+          </div>
+          <div class="absolute left-[300%] bg-red-500 h-full w-full flex items-center justify-center">
+            <nuxt-img
+              src="/IMG_4626-low.jpg"
+              alt="img"
+              class="max-h-full max-w-full shadow-lg rounded-sm"
+            />
+          </div>
+          <div class="absolute left-[400%] bg-orange-500 h-full w-full flex items-center justify-center">
+            <nuxt-img
+              src="/IMG_4630-low.jpg"
+              alt="img"
+              class="max-h-full max-w-full shadow-lg rounded-sm"
+            />
+          </div>
         </Flicking>
 
         <div class="absolute right-0 bottom-0
