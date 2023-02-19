@@ -9,9 +9,10 @@
       </div>
       <div
         class="relative grow-0 shrink-1 basis-auto
-          flex items-center justify-center h-full min-h-0 m-0 sm:m-14"
+          flex flex-col items-center justify-center h-full min-h-0 m-0 sm:m-14"
       >
-        <Flicking class="h-full w-full overflow-hidden">
+        <Flicking class="h-full w-full overflow-hidden"
+        ref="flicking" @changed="update_photo_number">
           <div class="absolute h-full w-full flex items-center justify-center">
             <nuxt-img
               src="/IMG_4618-low.jpg"
@@ -49,9 +50,9 @@
           </div>
         </Flicking>
 
-        <div class="absolute right-0 bottom-0
+        <div class="absolute right-4 bottom-4 sm:right-0 sm:bottom-0
           text-base text-neutral-200">
-          {{photos[n].number}}/5
+          {{photo_number}}/5
         </div>
         <button
           type="button"
@@ -89,31 +90,26 @@ import { Flicking } from "@egjs/vue-flicking";
 export default {
   data() {
     return {
-      show: true,
-      n: 0,
-      n_max: 4,
-      path: '~/assets/', // prefix path
-      photos: [ // all filenames and its number
-        {name:'IMG_4618.jpg', number:1},
-        {name:'IMG_4619.jpg', number:2},
-        {name:'IMG_4623.jpg', number:3},
-        {name:'IMG_4626.jpg', number:4},
-        {name:'IMG_4630.jpg', number:5},
-      ],
-      list: [0, 1, 2, 3, 4]
+      photo_number: 1,
+      n: 0
     }
   },
   methods: {
     next_photo() {
-      if(this.n < this.n_max) this.n++
-      else this.n = 0
+        this.$refs.flicking.next(500);
     },
     previous_photo() {
-      if(this.n > 0) this.n--
-      else this.n = this.n_max
+      this.$refs.flicking.prev(500);
+    },
+    update_photo_number() {
+      this.photo_number = this.$refs.flicking.index + 1;
     }
   },
   computed: {
+    console: () => console,
+  },
+  mounted() {
+    console.log(this.$refs.flicking);
   },
   components: {
     Flicking: Flicking
