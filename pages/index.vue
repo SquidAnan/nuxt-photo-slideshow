@@ -3,13 +3,13 @@
     <div class="flex flex-col items-stretch h-screen bg-neutral-800">
       <div
         class="grow-0 shrink-0 basis-auto sm:px-6 lg:px-8 py-8
-        hidden sm:block sm:text-4xl text-neutral-200"
+        hidden lg:block lg:text-4xl text-neutral-200"
       >
         2023-02-05-NYCU
       </div>
       <div
         class="relative grow-0 shrink-1 basis-auto
-          flex flex-col items-center justify-center h-full min-h-0 m-0 sm:m-14"
+          flex flex-col items-center justify-center h-full min-h-0 m-0 lg:mx-14 lg:mb-14"
       >
         <Flicking class="h-full w-full overflow-hidden"
         ref="flicking" @changed="update_photo_number">
@@ -50,7 +50,7 @@
           </div>
         </Flicking>
 
-        <div class="absolute right-4 bottom-4 sm:right-0 sm:bottom-0
+        <div class="absolute right-4 bottom-4 lg:right-0 lg:bottom-0
           text-base text-neutral-200">
           {{photo_number}}/5
         </div>
