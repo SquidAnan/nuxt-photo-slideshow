@@ -12,7 +12,8 @@
           flex flex-col items-center justify-center h-full min-h-0 m-0 lg:mx-14 lg:mb-14"
       >
         <Flicking class="h-full w-full overflow-hidden"
-        ref="flicking" @changed="update_photo_number">
+        ref="flicking" @changed="update_photo_number"
+        :options="{panelsPerView: 1, renderOnlyVisible: false}">
           <div class="absolute h-full w-full flex items-center justify-center">
             <nuxt-img
               src="/IMG_4618.webp"
@@ -103,6 +104,7 @@ export default {
     },
     update_photo_number() {
       this.photo_number = this.$refs.flicking.index + 1;
+      console.log(this.$refs.flicking.renderer.rendering)
     }
   },
   computed: {
@@ -118,11 +120,11 @@ export default {
 </script>
 
 <style scoped>
-
-/deep/ .flicking-camera { /* deep selector is used to select a child component's class */
+/* deep selector is used to select a child component's class */
+/deep/ .flicking-camera { 
+  display: relative;
   height: 100%;
-  width: 100%;
-  position: relative;
+  /* width: 100%; */
 }
 
 </style>
