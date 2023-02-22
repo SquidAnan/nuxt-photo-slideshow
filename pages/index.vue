@@ -1,6 +1,6 @@
 <template>
-  <main>
-    <div class="flex flex-col items-stretch h-screen bg-neutral-800">
+  <main class="h-full">
+    <div class="flex flex-col items-stretch h-full bg-neutral-800">
       <div
         class="grow-0 shrink-0 basis-auto sm:px-6 lg:px-8 py-8
         hidden lg:block lg:text-4xl text-neutral-200"
@@ -19,6 +19,8 @@
               src="/IMG_4618.webp"
               alt="img"
               class="max-h-full max-w-full shadow-lg rounded-sm"
+              draggable="false"
+              loading="lazy"
             />
           </div>
           <div class="absolute left-[100%] h-full w-full flex items-center justify-center">
@@ -26,6 +28,8 @@
               src="/IMG_4619.webp"
               alt="img"
               class="max-h-full max-w-full shadow-lg rounded-sm"
+              draggable="false"
+              loading="lazy"
             />
           </div>
           <div class="absolute left-[200%] h-full w-full flex items-center justify-center">
@@ -33,6 +37,8 @@
               src="/IMG_4623.webp"
               alt="img"
               class="max-h-full max-w-full shadow-lg rounded-sm"
+              draggable="false"
+              loading="lazy"
             />
           </div>
           <div class="absolute left-[300%] h-full w-full flex items-center justify-center">
@@ -40,6 +46,8 @@
               src="/IMG_4626.webp"
               alt="img"
               class="max-h-full max-w-full shadow-lg rounded-sm"
+              draggable="false"
+              loading="lazy"
             />
           </div>
           <div class="absolute left-[400%] h-full w-full flex items-center justify-center">
@@ -47,6 +55,8 @@
               src="/IMG_4630.webp"
               alt="img"
               class="max-h-full max-w-full shadow-lg rounded-sm"
+              draggable="false"
+              loading="lazy"
             />
           </div>
         </Flicking>
@@ -104,14 +114,10 @@ export default {
     },
     update_photo_number() {
       this.photo_number = this.$refs.flicking.index + 1;
-      console.log(this.$refs.flicking.renderer.rendering)
     }
   },
   computed: {
     console: () => console,
-  },
-  mounted() {
-    console.log(this.$refs.flicking);
   },
   components: {
     Flicking: Flicking
@@ -126,6 +132,10 @@ export default {
   height: 100%;
   /* width: 100%; */
 }
-
 </style>
 
+<style>
+html, body, #__nuxt, #__layout {
+  height: 100%;
+}
+</style>
