@@ -14,7 +14,7 @@
                 >
                     <div class="absolute h-full w-full flex items-center justify-center">
                         <nuxt-img
-                            src="/IMG_4618-2000.jpg"
+                            src="/IMG_4618.webp"
                             alt="img"
                             class="max-h-full max-w-full shadow-lg rounded-sm"
                             draggable="false"
@@ -23,7 +23,7 @@
                     </div>
                     <div class="absolute left-[100%] h-full w-full flex items-center justify-center">
                         <nuxt-img
-                            src="/IMG_4619-2000.jpg"
+                            src="/IMG_4619.webp"
                             alt="img"
                             class="max-h-full max-w-full shadow-lg rounded-sm"
                             draggable="false"
@@ -32,7 +32,7 @@
                     </div>
                     <div class="absolute left-[200%] h-full w-full flex items-center justify-center">
                         <nuxt-img
-                            src="/IMG_4623-2000.jpg"
+                            src="/IMG_4623.webp"
                             alt="img"
                             class="max-h-full max-w-full shadow-lg rounded-sm"
                             draggable="false"
@@ -41,7 +41,7 @@
                     </div>
                     <div class="absolute left-[300%] h-full w-full flex items-center justify-center">
                         <nuxt-img
-                            src="/IMG_4626-2000.jpg"
+                            src="/IMG_4626.webp"
                             alt="img"
                             class="max-h-full max-w-full shadow-lg rounded-sm"
                             draggable="false"
@@ -50,7 +50,7 @@
                     </div>
                     <div class="absolute left-[400%] h-full w-full flex items-center justify-center">
                         <nuxt-img
-                            src="/IMG_4630-2000.jpg"
+                            src="/IMG_4630.webp"
                             alt="img"
                             class="max-h-full max-w-full shadow-lg rounded-sm"
                             draggable="false"
