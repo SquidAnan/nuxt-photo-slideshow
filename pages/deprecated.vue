@@ -18,7 +18,6 @@
                             alt="img"
                             class="max-h-full max-w-full shadow-lg rounded-sm"
                             draggable="false"
-                            loading="lazy"
                         />
                     </div>
                     <div class="absolute left-[100%] h-full w-full flex items-center justify-center">
@@ -27,7 +26,6 @@
                             alt="img"
                             class="max-h-full max-w-full shadow-lg rounded-sm"
                             draggable="false"
-                            loading="lazy"
                         />
                     </div>
                     <div class="absolute left-[200%] h-full w-full flex items-center justify-center">
@@ -36,7 +34,6 @@
                             alt="img"
                             class="max-h-full max-w-full shadow-lg rounded-sm"
                             draggable="false"
-                            loading="lazy"
                         />
                     </div>
                     <div class="absolute left-[300%] h-full w-full flex items-center justify-center">
@@ -45,7 +42,6 @@
                             alt="img"
                             class="max-h-full max-w-full shadow-lg rounded-sm"
                             draggable="false"
-                            loading="lazy"
                         />
                     </div>
                     <div class="absolute left-[400%] h-full w-full flex items-center justify-center">
@@ -54,7 +50,6 @@
                             alt="img"
                             class="max-h-full max-w-full shadow-lg rounded-sm"
                             draggable="false"
-                            loading="lazy"
                         />
                     </div>
                 </Flicking>
