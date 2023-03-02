@@ -1,18 +1,23 @@
 <template>
     <main class="h-full">
         <div class="flex flex-col items-stretch h-full bg-neutral-800">
-            <div class="grow-0 shrink-0 basis-auto sm:px-6 lg:px-8 py-8 hidden lg:block lg:text-4xl text-neutral-200">
+            <div
+                class="grow-0 shrink-0 basis-auto sm:px-6 lg:px-8 py-8 hidden lg:block lg:text-5xl text-neutral-200 font-['Archivo_Black']"
+            >
                 2023-02-05-NYCU
             </div>
             <div
-                class="relative grow-0 shrink-1 basis-auto flex flex-col items-center justify-center h-full min-h-0 m-0 lg:mx-14 lg:mb-14">
+                class="relative grow-0 shrink-1 basis-auto flex flex-col items-center justify-center h-full min-h-0 m-0 lg:mx-14 lg:mb-14"
+            >
                 <Flicking
                     class="h-full w-full overflow-hidden"
                     ref="flicking"
                     @changed="update_photo_number"
                     :options="{ panelsPerView: 1, renderOnlyVisible: false }"
                 >
-                    <div class="absolute h-full w-full flex items-center justify-center">
+                    <div
+                        class="absolute h-full w-full flex items-center justify-center"
+                    >
                         <nuxt-img
                             src="/IMG_4618-2000.jpg"
                             alt="img"
@@ -21,7 +26,9 @@
                             loading="lazy"
                         />
                     </div>
-                    <div class="absolute left-[100%] h-full w-full flex items-center justify-center">
+                    <div
+                        class="absolute left-[100%] h-full w-full flex items-center justify-center"
+                    >
                         <nuxt-img
                             src="/IMG_4619-2000.jpg"
                             alt="img"
@@ -30,7 +37,9 @@
                             loading="lazy"
                         />
                     </div>
-                    <div class="absolute left-[200%] h-full w-full flex items-center justify-center">
+                    <div
+                        class="absolute left-[200%] h-full w-full flex items-center justify-center"
+                    >
                         <nuxt-img
                             src="/IMG_4623-2000.jpg"
                             alt="img"
@@ -39,7 +48,9 @@
                             loading="lazy"
                         />
                     </div>
-                    <div class="absolute left-[300%] h-full w-full flex items-center justify-center">
+                    <div
+                        class="absolute left-[300%] h-full w-full flex items-center justify-center"
+                    >
                         <nuxt-img
                             src="/IMG_4626-2000.jpg"
                             alt="img"
@@ -48,7 +59,9 @@
                             loading="lazy"
                         />
                     </div>
-                    <div class="absolute left-[400%] h-full w-full flex items-center justify-center">
+                    <div
+                        class="absolute left-[400%] h-full w-full flex items-center justify-center"
+                    >
                         <nuxt-img
                             src="/IMG_4630-2000.jpg"
                             alt="img"
@@ -59,8 +72,10 @@
                     </div>
                 </Flicking>
 
-                <div class="absolute right-4 bottom-4 lg:right-0 lg:bottom-0 text-base text-neutral-200">
-                    {{ photo_number }}/5
+                <div
+                    class="absolute right-4 bottom-4 lg:right-0 lg:bottom-0 text-base text-neutral-200 font-[Domine]"
+                >
+                    {{ photo_number }} / 5
                 </div>
                 <button
                     type="button"
@@ -108,8 +123,8 @@ export default {
     data() {
         return {
             photo_number: 1,
-            n: 0
-        }
+            n: 0,
+        };
     },
     methods: {
         next_photo() {
@@ -120,14 +135,14 @@ export default {
         },
         update_photo_number() {
             this.photo_number = this.$refs.flicking.index + 1;
-        }
+        },
     },
     computed: {
         console: () => console,
     },
     components: {
-        Flicking: Flicking
-    }
+        Flicking: Flicking,
+    },
 };
 </script>
 

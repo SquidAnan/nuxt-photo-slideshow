@@ -10,6 +10,16 @@ export default {
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { hid: "description", name: "description", content: "" },
     ],
+    link: [
+        {
+          rel: 'stylesheet',
+          href: 'https://fonts.googleapis.com/css2?family=Archivo+Black'
+        },
+        {
+            rel: 'stylesheet',
+            href: 'https://fonts.googleapis.com/css2?family=Domine:wght@600'
+          }
+      ],
   },
   modules: ["@nuxt/image", "@nuxtjs/tailwindcss"],
   image: {
