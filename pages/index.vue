@@ -113,6 +113,17 @@
                 </button>
             </div>
         </div>
+        <div
+            class="absolute p-8 w-[600px] h-[300px] text-neutral-200 bg-[rgba(0,0,0,0.3)] backdrop-blur rounded cursor-move select-none"
+            @mousedown="(event) => drag_start(event)"
+            :style="{ top: posY + 'px', left: posX + 'px' }"
+        >
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In quis
+            orci justo. Nulla sit amet nunc velit. Sed rutrum arcu justo, vel
+            lobortis libero pharetra a. Cras tincidunt aliquet nisl, vitae
+            interdum orci semper et. Suspendisse elementum ornare erat et
+            ullamcorper
+        </div>
     </main>
 </template>
 
@@ -124,6 +135,10 @@ export default {
         return {
             photo_number: 1,
             n: 0,
+            posX: 20,
+            posY: 20,
+            cursor_posX: 0,
+            cursor_posY: 0,
         };
     },
     methods: {
@@ -135,6 +150,22 @@ export default {
         },
         update_photo_number() {
             this.photo_number = this.$refs.flicking.index + 1;
+        },
+        drag_start(event) {
+            this.cursor_posX = event.clientX;
+            this.cursor_posY = event.clientY;
+            document.onmousemove = (event) => this.dragging(event);
+            document.onmouseup = this.drag_stop;
+        },
+        dragging(event) {
+            this.posX += event.clientX - this.cursor_posX;
+            this.posY += event.clientY - this.cursor_posY;
+            this.cursor_posX = event.clientX;
+            this.cursor_posY = event.clientY;
+        },
+        drag_stop() {
+            document.onmousemove = null;
+            document.onmouseup = null;
         },
     },
     computed: {
@@ -161,5 +192,6 @@ body,
 #__nuxt,
 #__layout {
     height: 100%;
+    overflow: hidden;
 }
 </style>
