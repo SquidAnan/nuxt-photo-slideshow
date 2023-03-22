@@ -1,23 +1,19 @@
 <template>
-    <main class="h-full">
-        <div class="flex flex-col items-stretch h-full bg-neutral-800">
+    <main class="h-full bg-neutral-800 lg:p-20">
+        <div class="flex flex-col items-stretch h-full">
             <div
-                class="grow-0 shrink-0 basis-auto sm:px-6 lg:px-8 py-8 hidden lg:block lg:text-5xl text-neutral-200 font-['Archivo_Black']"
-            >
+                class="grow-0 shrink-0 basis-auto hidden lg:block lg:text-5xl text-neutral-200 font-['Archivo_Black'] mb-10">
                 2023-02-05-NYCU
             </div>
             <div
-                class="relative grow-0 shrink-1 basis-auto flex flex-col items-center justify-center h-full min-h-0 m-0 lg:mx-14 lg:mb-14"
-            >
+                class="relative grow-0 shrink-1 basis-auto flex flex-col items-center justify-center h-full min-h-0 lg:px-20">
                 <Flicking
                     class="h-full w-full overflow-hidden"
                     ref="flicking"
                     @changed="update_photo_number"
                     :options="{ panelsPerView: 1, renderOnlyVisible: false }"
                 >
-                    <div
-                        class="absolute h-full w-full flex items-center justify-center"
-                    >
+                    <div class="absolute h-full w-full flex items-center justify-center">
                         <nuxt-img
                             src="/IMG_4618-2000.jpg"
                             alt="img"
@@ -26,9 +22,7 @@
                             loading="lazy"
                         />
                     </div>
-                    <div
-                        class="absolute left-[100%] h-full w-full flex items-center justify-center"
-                    >
+                    <div class="absolute left-[100%] h-full w-full flex items-center justify-center">
                         <nuxt-img
                             src="/IMG_4619-2000.jpg"
                             alt="img"
@@ -37,9 +31,7 @@
                             loading="lazy"
                         />
                     </div>
-                    <div
-                        class="absolute left-[200%] h-full w-full flex items-center justify-center"
-                    >
+                    <div class="absolute left-[200%] h-full w-full flex items-center justify-center">
                         <nuxt-img
                             src="/IMG_4623-2000.jpg"
                             alt="img"
@@ -48,9 +40,7 @@
                             loading="lazy"
                         />
                     </div>
-                    <div
-                        class="absolute left-[300%] h-full w-full flex items-center justify-center"
-                    >
+                    <div class="absolute left-[300%] h-full w-full flex items-center justify-center">
                         <nuxt-img
                             src="/IMG_4626-2000.jpg"
                             alt="img"
@@ -59,9 +49,7 @@
                             loading="lazy"
                         />
                     </div>
-                    <div
-                        class="absolute left-[400%] h-full w-full flex items-center justify-center"
-                    >
+                    <div class="absolute left-[400%] h-full w-full flex items-center justify-center">
                         <nuxt-img
                             src="/IMG_4630-2000.jpg"
                             alt="img"
@@ -72,9 +60,7 @@
                     </div>
                 </Flicking>
 
-                <div
-                    class="absolute right-4 bottom-4 lg:right-0 lg:bottom-0 text-base text-neutral-200 font-[Domine]"
-                >
+                <div class="absolute right-4 bottom-4 lg:right-0 lg:bottom-0 text-base text-neutral-200 font-[Domine]">
                     {{ photo_number }} / 5
                 </div>
                 <button
@@ -84,8 +70,8 @@
                 >
                     <svg
                         viewBox="0 0 24 24"
-                        height="80"
-                        width="80"
+                        height="60"
+                        width="60"
                         fill="none"
                         stroke-linecap="round"
                         stroke-linejoin="round"
@@ -101,8 +87,8 @@
                 >
                     <svg
                         viewBox="0 0 24 24"
-                        height="80"
-                        width="80"
+                        height="60"
+                        width="60"
                         fill="none"
                         stroke-linecap="round"
                         stroke-linejoin="round"
@@ -111,12 +97,21 @@
                         <polyline points="9 18 15 12 9 6"></polyline>
                     </svg>
                 </button>
+                <button type="button">
+                    <img
+                        src="dots.svg"
+                        alt="dots"
+                        @click="toggle_description"
+                        class="hidden lg:block absolute top-0 left-0 h-[40px] w-[50px] p-2 transition duration-300 hover:opacity-80 hover:translate-x-1"
+                    />
+                </button>
             </div>
         </div>
         <div
-            class="absolute p-8 w-[600px] h-[300px] text-neutral-200 bg-[rgba(0,0,0,0.3)] backdrop-blur rounded cursor-move select-none"
+            class="relative p-8 w-[600px] h-[300px] text-neutral-200 bg-[rgba(0,0,0,0.3)] backdrop-blur rounded cursor-move select-none"
             @mousedown="(event) => drag_start(event)"
             :style="{ top: posY + 'px', left: posX + 'px' }"
+            v-show="description_visible"
         >
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. In quis
             orci justo. Nulla sit amet nunc velit. Sed rutrum arcu justo, vel
@@ -139,6 +134,7 @@ export default {
             posY: 20,
             cursor_posX: 0,
             cursor_posY: 0,
+            description_visible: false
         };
     },
     methods: {
@@ -167,6 +163,9 @@ export default {
             document.onmousemove = null;
             document.onmouseup = null;
         },
+        toggle_description() {
+            this.description_visible = !this.description_visible;
+        }
     },
     computed: {
         console: () => console,
