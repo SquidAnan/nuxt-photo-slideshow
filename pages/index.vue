@@ -2,18 +2,22 @@
     <main class="h-full bg-neutral-800 lg:p-20">
         <div class="flex flex-col items-stretch h-full">
             <div
-                class="grow-0 shrink-0 basis-auto hidden lg:block lg:text-5xl text-neutral-200 font-['Archivo_Black'] mb-10">
+                class="grow-0 shrink-0 basis-auto hidden lg:block lg:text-5xl text-neutral-200 font-['Archivo_Black'] mb-10"
+            >
                 2023-02-05-NYCU
             </div>
             <div
-                class="relative grow-0 shrink-1 basis-auto flex flex-col items-center justify-center h-full min-h-0 lg:px-20">
+                class="relative grow-0 shrink-1 basis-auto flex flex-col items-center justify-center h-full min-h-0 lg:px-20"
+            >
                 <Flicking
                     class="h-full w-full overflow-hidden"
                     ref="flicking"
                     @changed="update_photo_number"
                     :options="{ panelsPerView: 1, renderOnlyVisible: false }"
                 >
-                    <div class="absolute h-full w-full flex items-center justify-center">
+                    <div
+                        class="absolute h-full w-full flex items-center justify-center"
+                    >
                         <nuxt-img
                             src="/IMG_4618-2000.jpg"
                             alt="img"
@@ -22,7 +26,9 @@
                             loading="lazy"
                         />
                     </div>
-                    <div class="absolute left-[100%] h-full w-full flex items-center justify-center">
+                    <div
+                        class="absolute left-[100%] h-full w-full flex items-center justify-center"
+                    >
                         <nuxt-img
                             src="/IMG_4619-2000.jpg"
                             alt="img"
@@ -31,7 +37,9 @@
                             loading="lazy"
                         />
                     </div>
-                    <div class="absolute left-[200%] h-full w-full flex items-center justify-center">
+                    <div
+                        class="absolute left-[200%] h-full w-full flex items-center justify-center"
+                    >
                         <nuxt-img
                             src="/IMG_4623-2000.jpg"
                             alt="img"
@@ -40,7 +48,9 @@
                             loading="lazy"
                         />
                     </div>
-                    <div class="absolute left-[300%] h-full w-full flex items-center justify-center">
+                    <div
+                        class="absolute left-[300%] h-full w-full flex items-center justify-center"
+                    >
                         <nuxt-img
                             src="/IMG_4626-2000.jpg"
                             alt="img"
@@ -49,7 +59,9 @@
                             loading="lazy"
                         />
                     </div>
-                    <div class="absolute left-[400%] h-full w-full flex items-center justify-center">
+                    <div
+                        class="absolute left-[400%] h-full w-full flex items-center justify-center"
+                    >
                         <nuxt-img
                             src="/IMG_4630-2000.jpg"
                             alt="img"
@@ -60,7 +72,9 @@
                     </div>
                 </Flicking>
 
-                <div class="absolute right-4 bottom-4 lg:right-0 lg:bottom-0 text-base text-neutral-200 font-[Domine]">
+                <div
+                    class="absolute right-4 bottom-4 lg:right-0 lg:bottom-0 text-base text-neutral-200 font-[Domine]"
+                >
                     {{ photo_number }} / 5
                 </div>
                 <button
@@ -97,30 +111,38 @@
                         <polyline points="9 18 15 12 9 6"></polyline>
                     </svg>
                 </button>
-                <button type="button">
-                    <img
-                        src="dots.svg"
-                        alt="dots"
+                <div class="absolute top-0 left-0">
+                    <button
+                        type="button"
+                        class="hidden lg:block p-1 transition duration-300 hover:opacity-80 hover:translate-x-[2px]"
                         @click="toggle_description"
-                        class="hidden lg:block absolute top-0 left-0 h-[40px] w-[50px] p-2 transition duration-300 hover:opacity-80 hover:translate-x-1"
-                    />
-                </button>
+                    >
+                        <img
+                            src="dots.svg"
+                            alt="dots"
+                            class="h-[24px] w-[30px]"
+                        />
+                    </button>
+                    <transition name="zoom">
+                        <div
+                            class="absolute w-[600px] h-[300px] text-neutral-200 bg-[rgba(0,0,0,0.3)] backdrop-blur rounded cursor-move select-none"
+                            @mousedown="(event) => drag_start(event)"
+                            :style="windowStyle"
+                            v-show="description_visible"
+                        >
+                            <div class="p-8 w-[600px] h-[300px]">
+                                Lorem ipsum dolor sit amet, consectetur
+                                adipiscing elit. In quis orci justo. Nulla sit
+                                amet nunc velit. Sed rutrum arcu justo, vel
+                                lobortis libero pharetra a. Cras tincidunt
+                                aliquet nisl, vitae interdum orci semper et.
+                                Suspendisse elementum ornare erat et ullamcorper
+                            </div>
+                        </div>
+                    </transition>
+                </div>
             </div>
         </div>
-        <Transition name="zoom">
-            <div
-                class="absolute p-8 w-[600px] h-[300px] text-neutral-200 bg-[rgba(0,0,0,0.3)] backdrop-blur rounded cursor-move select-none"
-                @mousedown="(event) => drag_start(event)"
-                :style="{ top: posY + 'px', left: posX + 'px' }"
-                v-show="description_visible"
-            >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. In quis
-                orci justo. Nulla sit amet nunc velit. Sed rutrum arcu justo, vel
-                lobortis libero pharetra a. Cras tincidunt aliquet nisl, vitae
-                interdum orci semper et. Suspendisse elementum ornare erat et
-                ullamcorper
-            </div>
-        </Transition>
     </main>
 </template>
 
@@ -132,11 +154,11 @@ export default {
         return {
             photo_number: 1,
             n: 0,
-            posX: 200,
-            posY: 400,
+            posX: 300,
+            posY: 200,
             cursor_posX: 0,
             cursor_posY: 0,
-            description_visible: false
+            description_visible: false,
         };
     },
     methods: {
@@ -167,10 +189,16 @@ export default {
         },
         toggle_description() {
             this.description_visible = !this.description_visible;
-        }
+        },
     },
     computed: {
         console: () => console,
+        windowStyle: function () {
+            return {
+                top: this.posY + "px",
+                left: this.posX + "px",
+            };
+        },
     },
     components: {
         Flicking: Flicking,
@@ -198,11 +226,18 @@ body,
 
 .zoom-enter-active,
 .zoom-leave-active {
-    transition: opacity 0.5s ease;
+    transition: all 0.3s ease;
 }
 
 .zoom-enter,
 .zoom-leave-to {
+    /* transform: translate(-5px, 3px); */
     opacity: 0;
+    width: 10%;
 }
+
+/* .zoom-leave,
+.zoom-enter-to {
+    opacity: 1;
+} */
 </style>
