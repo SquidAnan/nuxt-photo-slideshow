@@ -1,23 +1,16 @@
 <template>
     <main class="h-full bg-neutral-800 lg:p-20">
         <div class="flex flex-col items-stretch h-full">
+            <Title />
             <div
-                class="grow-0 shrink-0 basis-auto hidden lg:block lg:text-5xl text-neutral-200 font-['Archivo_Black'] mb-10"
-            >
-                2023-02-05-NYCU
-            </div>
-            <div
-                class="relative grow-0 shrink-1 basis-auto flex flex-col items-center justify-center h-full min-h-0 lg:px-20"
-            >
+                class="relative grow-0 shrink-1 basis-auto flex flex-col items-center justify-center h-full min-h-0 lg:px-20">
                 <Flicking
                     class="h-full w-full overflow-hidden"
                     ref="flicking"
                     @changed="update_photo_number"
                     :options="{ panelsPerView: 1, renderOnlyVisible: false }"
                 >
-                    <div
-                        class="absolute h-full w-full flex items-center justify-center"
-                    >
+                    <div class="absolute h-full w-full flex items-center justify-center">
                         <nuxt-img
                             src="/IMG_4618-2000.jpg"
                             alt="img"
@@ -26,9 +19,7 @@
                             loading="lazy"
                         />
                     </div>
-                    <div
-                        class="absolute left-[100%] h-full w-full flex items-center justify-center"
-                    >
+                    <div class="absolute left-[100%] h-full w-full flex items-center justify-center">
                         <nuxt-img
                             src="/IMG_4619-2000.jpg"
                             alt="img"
@@ -37,9 +28,7 @@
                             loading="lazy"
                         />
                     </div>
-                    <div
-                        class="absolute left-[200%] h-full w-full flex items-center justify-center"
-                    >
+                    <div class="absolute left-[200%] h-full w-full flex items-center justify-center">
                         <nuxt-img
                             src="/IMG_4623-2000.jpg"
                             alt="img"
@@ -48,9 +37,7 @@
                             loading="lazy"
                         />
                     </div>
-                    <div
-                        class="absolute left-[300%] h-full w-full flex items-center justify-center"
-                    >
+                    <div class="absolute left-[300%] h-full w-full flex items-center justify-center">
                         <nuxt-img
                             src="/IMG_4626-2000.jpg"
                             alt="img"
@@ -59,9 +46,7 @@
                             loading="lazy"
                         />
                     </div>
-                    <div
-                        class="absolute left-[400%] h-full w-full flex items-center justify-center"
-                    >
+                    <div class="absolute left-[400%] h-full w-full flex items-center justify-center">
                         <nuxt-img
                             src="/IMG_4630-2000.jpg"
                             alt="img"
@@ -72,9 +57,7 @@
                     </div>
                 </Flicking>
 
-                <div
-                    class="absolute right-4 bottom-4 lg:right-0 lg:bottom-0 text-base text-neutral-200 font-[Domine]"
-                >
+                <div class="absolute right-4 bottom-4 lg:right-0 lg:bottom-0 text-base text-neutral-200 font-[Domine]">
                     {{ photo_number }} / 5
                 </div>
                 <button
@@ -125,7 +108,7 @@
                     </button>
                     <transition name="zoom">
                         <div
-                            class="absolute w-[600px] h-[300px] text-neutral-200 bg-[rgba(0,0,0,0.3)] backdrop-blur rounded cursor-move select-none"
+                            class="absolute w-[600px] h-[300px] text-neutral-200 bg-[rgba(0,0,0,0.3)] backdrop-blur rounded cursor-move select-none overflow-hidden"
                             @mousedown="(event) => drag_start(event)"
                             :style="windowStyle"
                             v-show="description_visible"
