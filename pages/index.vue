@@ -4,59 +4,8 @@
             <Title />
             <div
                 class="relative grow-0 shrink-1 basis-auto flex flex-col items-center justify-center h-full min-h-0 lg:px-20">
-                <Flicking
-                    class="h-full w-full overflow-hidden"
-                    ref="flicking"
-                    @changed="update_photo_number"
-                    :options="{ panelsPerView: 1, renderOnlyVisible: false }"
-                >
-                    <div class="absolute h-full w-full flex items-center justify-center">
-                        <nuxt-img
-                            src="/IMG_4618-2000.jpg"
-                            alt="img"
-                            class="max-h-full max-w-full shadow-lg rounded-sm"
-                            draggable="false"
-                            loading="lazy"
-                        />
-                    </div>
-                    <div class="absolute left-[100%] h-full w-full flex items-center justify-center">
-                        <nuxt-img
-                            src="/IMG_4619-2000.jpg"
-                            alt="img"
-                            class="max-h-full max-w-full shadow-lg rounded-sm"
-                            draggable="false"
-                            loading="lazy"
-                        />
-                    </div>
-                    <div class="absolute left-[200%] h-full w-full flex items-center justify-center">
-                        <nuxt-img
-                            src="/IMG_4623-2000.jpg"
-                            alt="img"
-                            class="max-h-full max-w-full shadow-lg rounded-sm"
-                            draggable="false"
-                            loading="lazy"
-                        />
-                    </div>
-                    <div class="absolute left-[300%] h-full w-full flex items-center justify-center">
-                        <nuxt-img
-                            src="/IMG_4626-2000.jpg"
-                            alt="img"
-                            class="max-h-full max-w-full shadow-lg rounded-sm"
-                            draggable="false"
-                            loading="lazy"
-                        />
-                    </div>
-                    <div class="absolute left-[400%] h-full w-full flex items-center justify-center">
-                        <nuxt-img
-                            src="/IMG_4630-2000.jpg"
-                            alt="img"
-                            class="max-h-full max-w-full shadow-lg rounded-sm"
-                            draggable="false"
-                            loading="lazy"
-                        />
-                    </div>
-                </Flicking>
 
+                <Slideshow @photo_changed="update_photo_number" />
                 <div class="absolute right-4 bottom-4 lg:right-0 lg:bottom-0 text-base text-neutral-200 font-[Domine]">
                     {{ photo_number }} / 5
                 </div>
@@ -130,7 +79,7 @@
 </template>
 
 <script>
-import { Flicking } from "@egjs/vue-flicking";
+
 
 export default {
     data() {
@@ -151,9 +100,6 @@ export default {
         previous_photo() {
             this.$refs.flicking.prev(500);
         },
-        update_photo_number() {
-            this.photo_number = this.$refs.flicking.index + 1;
-        },
         drag_start(event) {
             this.cursor_posX = event.clientX;
             this.cursor_posY = event.clientY;
@@ -173,6 +119,9 @@ export default {
         toggle_description() {
             this.description_visible = !this.description_visible;
         },
+        update_photo_number(variable) {
+            this.photo_number = variable
+        }
     },
     computed: {
         console: () => console,
@@ -183,20 +132,10 @@ export default {
             };
         },
     },
-    components: {
-        Flicking: Flicking,
-    },
+
 };
 </script>
 
-<style scoped>
-/* deep selector is used to select a child component's class */
-/deep/ .flicking-camera {
-    display: relative;
-    height: 100%;
-    /* width: 100%; */
-}
-</style>
 
 <style>
 html,
