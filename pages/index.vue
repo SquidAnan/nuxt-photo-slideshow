@@ -3,7 +3,7 @@
         <div class="flex flex-col items-stretch h-full">
             <AlbumTitle />
             <div
-                class="relative flex flex-col items-center justify-center h-full min-h-0 grow-0 shrink-1 basis-auto lg:px-20"
+                class="grow-0 shrink-1 basis-auto relative flex flex-col items-center justify-center h-full min-h-0 lg:px-20"
             >
                 <Slideshow
                     @photo_changed="update_photo_number"
@@ -16,31 +16,38 @@
                 </div>
                 <SlideButton direction="right" @click.native="next_photo" />
                 <SlideButton direction="left" @click.native="previous_photo" />
-                <div class="absolute top-0 left-0">
-                    <button
-                        type="button"
-                        class="hidden lg:block p-1 transition duration-300 hover:opacity-80 hover:translate-x-[2px]"
-                        @click="toggle_description"
+                <button
+                    type="button"
+                    class="absolute top-0 left-0 hidden lg:block p-1 transition duration-300 hover:opacity-80 hover:translate-x-[2px]"
+                    @click="toggle_description"
+                >
+                    <img src="dots.svg" alt="dots" class="h-[24px] w-[30px]" />
+                </button>
+                <transition name="zoom">
+                    <div
+                        class="hidden lg:block absolute w-[450px] min-h-[150px] text-neutral-200 bg-[rgba(0,0,0,0.3)] backdrop-blur rounded cursor-move select-none overflow-hidden text-lg"
+                        @mousedown="(event) => drag_start(event)"
+                        :style="windowStyle"
+                        v-show="description_visible"
                     >
-                        <img
-                            src="dots.svg"
-                            alt="dots"
-                            class="h-[24px] w-[30px]"
-                        />
-                    </button>
-                    <transition name="zoom">
-                        <div
-                            class="absolute w-[500px] min-h-[150px] text-neutral-200 bg-[rgba(0,0,0,0.3)] backdrop-blur rounded cursor-move select-none overflow-hidden text-lg"
-                            @mousedown="(event) => drag_start(event)"
-                            :style="windowStyle"
-                            v-show="description_visible"
-                        >
-                            <div class="p-8 pb-10 w-[500px]">
+                        <div class="relative p-8 pb-10 w-[450px]">
+                            <p>
                                 那天交大下著很細的雨，整個校園像被籠罩在霧裡。
-                            </div>
+                            </p>
+                            <button
+                                type="button"
+                                class="absolute top-2 right-2 transition duration-300 hover:opacity-80"
+                                @click="toggle_description"
+                            >
+                                <img
+                                    src="cross.svg"
+                                    alt="cross"
+                                    class="p-1 w-5 h-5"
+                                />
+                            </button>
                         </div>
-                    </transition>
-                </div>
+                    </div>
+                </transition>
             </div>
         </div>
     </main>
@@ -51,7 +58,6 @@ export default {
     data() {
         return {
             photo_number: 1,
-            n: 0,
             posX: 300,
             posY: 200,
             cursor_posX: 0,
