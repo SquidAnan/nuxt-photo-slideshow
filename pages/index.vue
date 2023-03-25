@@ -30,18 +30,13 @@
                     </button>
                     <transition name="zoom">
                         <div
-                            class="absolute w-[600px] h-[300px] text-neutral-200 bg-[rgba(0,0,0,0.3)] backdrop-blur rounded cursor-move select-none overflow-hidden"
+                            class="absolute w-[500px] min-h-[150px] text-neutral-200 bg-[rgba(0,0,0,0.3)] backdrop-blur rounded cursor-move select-none overflow-hidden text-lg"
                             @mousedown="(event) => drag_start(event)"
                             :style="windowStyle"
                             v-show="description_visible"
                         >
-                            <div class="p-8 w-[600px] h-[300px]">
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit. In quis orci justo. Nulla sit
-                                amet nunc velit. Sed rutrum arcu justo, vel
-                                lobortis libero pharetra a. Cras tincidunt
-                                aliquet nisl, vitae interdum orci semper et.
-                                Suspendisse elementum ornare erat et ullamcorper
+                            <div class="p-8 pb-10 w-[500px]">
+                                那天交大下著很細的雨，整個校園像被籠罩在霧裡。
                             </div>
                         </div>
                     </transition>
@@ -124,7 +119,7 @@ body,
 .zoom-leave-to {
     /* transform: translate(-5px, 3px); */
     opacity: 0;
-    width: 10%;
+    width: 0;
 }
 
 /* .zoom-leave,
