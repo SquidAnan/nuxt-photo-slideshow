@@ -5,46 +5,17 @@
             <div
                 class="relative flex flex-col items-center justify-center h-full min-h-0 grow-0 shrink-1 basis-auto lg:px-20"
             >
-                <Slideshow @photo_changed="update_photo_number" />
+                <Slideshow
+                    @photo_changed="update_photo_number"
+                    ref="slideshow"
+                />
                 <div
                     class="absolute right-4 bottom-4 lg:right-0 lg:bottom-0 text-base text-neutral-200 font-[Domine]"
                 >
                     {{ photo_number }} / 5
                 </div>
-                <button
-                    type="button"
-                    class="absolute right-0 bg-[rgba(0,0,0,0.3)] rounded-lg transition duration-300 hover:bg-[rgba(0,0,0,0.5)] hidden lg:block"
-                    @click="next_photo"
-                >
-                    <svg
-                        viewBox="0 0 24 24"
-                        height="60"
-                        width="60"
-                        fill="none"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        class="transition duration-300 stroke-neutral-200 hover:translate-x-1"
-                    >
-                        <polyline points="9 18 15 12 9 6"></polyline>
-                    </svg>
-                </button>
-                <button
-                    type="button"
-                    class="absolute left-0 bg-[rgba(0,0,0,0.3)] rounded-lg transition duration-300 hover:bg-[rgba(0,0,0,0.5)] hidden lg:block rotate-180"
-                    @click="previous_photo"
-                >
-                    <svg
-                        viewBox="0 0 24 24"
-                        height="60"
-                        width="60"
-                        fill="none"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        class="transition duration-300 stroke-neutral-200 hover:translate-x-1"
-                    >
-                        <polyline points="9 18 15 12 9 6"></polyline>
-                    </svg>
-                </button>
+                <SlideButton direction="right" @click.native="next_photo" />
+                <SlideButton direction="left" @click.native="previous_photo" />
                 <div class="absolute top-0 left-0">
                     <button
                         type="button"
@@ -95,10 +66,10 @@ export default {
     },
     methods: {
         next_photo() {
-            this.$refs.flicking.next(500);
+            this.$refs.slideshow.$refs.flicking.next(500);
         },
         previous_photo() {
-            this.$refs.flicking.prev(500);
+            this.$refs.slideshow.$refs.flicking.prev(500);
         },
         drag_start(event) {
             this.cursor_posX = event.clientX;
