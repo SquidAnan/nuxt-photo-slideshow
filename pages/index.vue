@@ -1,8 +1,8 @@
 <template>
     <main class="h-full bg-neutral-800 lg:p-20">
         <div class="flex flex-col items-stretch h-full">
-            <Title />
-            <div 
+            <AlbumTitle />
+            <div
                 class="relative flex flex-col items-center justify-center h-full min-h-0 grow-0 shrink-1 basis-auto lg:px-20"
             >
                 <Slideshow @photo_changed="update_photo_number" />
