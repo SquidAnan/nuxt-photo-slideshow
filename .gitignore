@@ -3,5 +3,3 @@ dist
 node_modules
 *.log*
 .output
-package-lock.json
-yarn.lock
