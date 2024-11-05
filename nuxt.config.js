@@ -11,19 +11,20 @@ export default {
       { hid: "description", name: "description", content: "" },
     ],
     link: [
-        {
-          rel: 'stylesheet',
-          href: 'https://fonts.googleapis.com/css2?family=Archivo+Black'
-        },
-        {
-            rel: 'stylesheet',
-            href: 'https://fonts.googleapis.com/css2?family=Domine:wght@600'
-          }
-      ],
+      {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css2?family=Archivo+Black'
+      },
+      {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css2?family=Domine:wght@600'
+      }
+    ],
   },
   modules: ["@nuxt/image", "@nuxtjs/tailwindcss"],
   image: {
-    domains: ["https://images.unsplash.com", "https://source.unsplash.com"],
+    // domains: ["https://images.unsplash.com", "https://source.unsplash.com"],
+
   },
   target: 'static'
 };
