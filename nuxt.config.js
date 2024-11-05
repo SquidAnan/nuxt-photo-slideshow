@@ -24,7 +24,7 @@ export default {
   modules: ["@nuxt/image", "@nuxtjs/tailwindcss"],
   image: {
     // domains: ["https://images.unsplash.com", "https://source.unsplash.com"],
-
+    provider: 'static'
   },
   target: 'static'
 };
