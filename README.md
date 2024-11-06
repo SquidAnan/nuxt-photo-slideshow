@@ -10,7 +10,7 @@ This project is a **photo slideshow website** built using **Nuxt 2**, bringing t
 
 - **Photography**: Featuring photos captured and edited by me.
 - **Graphic Design**: Applied fundament design principles for a clean layout.
-- **[Vue.js](https://vuejs.org/)**: Providing modern front-end coding style.
+- **[Vue.js](https://vuejs.org/)**: Used for modern front-end development.
 - **[Nuxt 2](https://v2.nuxt.com/)**: A Vue framework for static site generation.
 - **[Vercel](https://vercel.com/)**: An easy way to host static websites.
 
