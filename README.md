@@ -2,23 +2,23 @@
 
 ![webiste demo](README-images/website-demo.jpeg)
 
-This project is a **photo slideshow website** built using **Nuxt 2**. I wanted to apply all the skills that I learned throughout the years.
+This project is a **photo slideshow website** built using **Nuxt 2**, bringing together the skills I've learned over time.
 
-Here are the skills and tools used in this project:
+## Key Skills and Tools:
 
-- **Photography**: Showcasing photos taken and digitally edited by me.
-- **Graphic Design**: Basic layout and design principles.
-- **[Vue.js](https://vuejs.org/)**: Modern front-end coding style
-- **[Nuxt 2](https://v2.nuxt.com/)**: Vue framework for static site generation 
-- **[Vercel](https://vercel.com/)**: Convenient way to host a static site
+- **Photography**: Featuring photos captured and edited by me.
+- **Graphic Design**: Applied fundament design principles for a clean layout.
+- **[Vue.js](https://vuejs.org/)**: Providing modern front-end coding style.
+- **[Nuxt 2](https://v2.nuxt.com/)**: A Vue framework for static site generation.
+- **[Vercel](https://vercel.com/)**: An easy way to host static websites.
 
 <br />
 
-Also, some useful tools used:
+Additional useful tools:
 - **[Tailwind CSS](https://tailwindcss.com/)**: Write more concise CSS code.
 - **[Flicking](https://naver.github.io/egjs-flicking/)**: So that I don't have to implement the sliding effect.
-- **[Nuxt Image (for Nuxt 2)](https://v0.image.nuxtjs.org/)**: Optimizing image rendering.
-- **[Nuxt Vercel Builder](https://github.com/nuxt/vercel-builder/tree/main)**: Helps Vercel build a Nuxt 2 project. See the first issue down below.
+- **[Nuxt Image (for Nuxt 2)](https://v0.image.nuxtjs.org/)**: Optimizes image rendering.
+- **[Nuxt Vercel Builder](https://github.com/nuxt/vercel-builder/tree/main)**: Helps Vercel build a Nuxt 2 project.
 
 <br />
 
