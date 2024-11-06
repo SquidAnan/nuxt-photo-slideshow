@@ -22,8 +22,8 @@ export default {
     ],
   },
   modules: ["@nuxt/image", "@nuxtjs/tailwindcss"],
-  // image: {
-  //   provider: 'static'
-  // },
+  image: {
+    provider: 'static'
+  },
   target: 'static'
 };
