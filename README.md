@@ -2,28 +2,41 @@
 
 ![webiste demo](README-images/website-demo.jpeg)
 
-I combined all the knowledge that I self-leanred into this project, including:
-- Photography
-- Basic graphic design
-- Front-end development (Vue.js)
-- Static site generation (Nuxt 2)
-- Web hosting (Vercel)
+This project is a **photo slideshow website** built using **Nuxt 2**. I wanted to apply all the skills that I learned throughout the years.
 
-And here are some of the modules/frameworks that I learned and used in this project:
-- Tailwind CSS: Fun to learn. I can write more concise CSS codes.
-- egjs-flicking: I don't have to implement the sliding effect on my own.
-- Nuxt Image: It makes images load faster (probably, I'm not really sure).
-- Nuxt Vercel Builder: See the first issue down below.
+Here are the skills and tools used in this project:
 
-## Issues encountered during deploying on Vercel
+- **Photography**: Showcasing photos taken and digitally edited by me.
+- **Graphic Design**: Basic layout and design principles.
+- **[Vue.js](https://vuejs.org/)**: Modern front-end coding style
+- **[Nuxt 2](https://v2.nuxt.com/)**: Vue framework for static site generation 
+- **[Vercel](https://vercel.com/)**: Convenient way to host a static site
 
-### 1. Failed bulid / 404 not found
+<br />
+
+Also, some useful tools used:
+- **[Tailwind CSS](https://tailwindcss.com/)**: Write more concise CSS code.
+- **[Flicking](https://naver.github.io/egjs-flicking/)**: So that I don't have to implement the sliding effect.
+- **[Nuxt Image (for Nuxt 2)](https://v0.image.nuxtjs.org/)**: Optimizing image rendering.
+- **[Nuxt Vercel Builder](https://github.com/nuxt/vercel-builder/tree/main)**: Helps Vercel build a Nuxt 2 project. See the first issue down below.
+
+<br />
+
+## Issues Encountered
+
+During the initial deployment on Vercel, I encountered multiple errors.
+
+### 1. Failed Bulid / 404 Not Found
+
+Sometimes the build would fail with an error message saying the output directory is wrong.
 
 ![webiste demo](README-images/error-message.png)
 
-The hosting process on Vercel didn't go well at first. Sometimes I get error messages during the deployment. Even though there are no error messages, I got a 404 not found. I thought the issue came from the Project Settings in Vercel, such as wrong output directory or wrong root directory, but there were no solutions that perfectly solve all my problems.
+Some people suggested [overriding the Output Directory in Vercel's Project Settings](https://stackoverflow.com/questions/75592472/no-output-directory-named-build-found-after-the-build-completed-you-can-confi). This solution did fix the issue and the deployment could be run successfully. However, after the delopyment finished, the website showed "404 Not Found".
 
-Finally, I fixed the issue with a `vercel.json` file in the root of my project, and it looks like this:
+![webiste demo](README-images/404-not-found.png)
+
+My final working solution was to add a  `vercel.json` file in the root directory of the project:
 ```
 {
     "version": 2,
@@ -35,16 +48,18 @@ Finally, I fixed the issue with a `vercel.json` file in the root of my project, 
     ]
 }
 ```
-I suppose it's because the latest version is Nuxt 3, so I need to specify I'm using the old version.
+For more details, see [Nuxt Vercel Builder](https://github.com/nuxt/vercel-builder/tree/main).
 
-### 2. Images won't show
+### 2. Images Not Showing
+
+Another issue occurred where images failed to display properly.
 
 ![webiste demo](README-images/no-images.png)
 
-Another issue was that the images couldn't properly display. I fixed the issue by adding the following code in `nuxt.config.js`:
+To fix the issue, I added the following in `nuxt.config.js`:
 ```
 image: {
     provider: 'static'
 },
 ```
-It doesn't really make sense to add these lines in order to make it work, since the provider should be 'static' by default.
+While this should be the default setting, it somehow fixed the issue.
