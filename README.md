@@ -5,18 +5,19 @@
 I combined all the knowledge that I self-leanred into this project, including:
 - Photography
 - Basic graphic design
-- Front-end development (Vue)
-- Static site generation (Nuxt)
+- Front-end development (Vue.js)
+- Static site generation (Nuxt 2)
 - Web hosting (Vercel)
 
 And here are some of the modules/frameworks that I learned and used in this project:
 - Tailwind CSS: Fun to learn. I can write more concise CSS codes.
 - egjs-flicking: I don't have to implement the sliding effect on my own.
 - Nuxt Image: It makes images load faster (probably, I'm not really sure).
+- Nuxt Vercel Builder: See the first issue down below.
 
 ## Issues encountered during deploying on Vercel
 
-### 1. "404 not found"
+### 1. Failed bulid / 404 not found
 
 ![webiste demo](README-images/error-message.png)
 
