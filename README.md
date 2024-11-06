@@ -39,7 +39,7 @@ Some people suggested [overriding the Output Directory in Vercel's Project Setti
 ![webiste demo](README-images/404-not-found.png)
 
 My final working solution was to add a  `vercel.json` file in the root directory of the project:
-```
+```json
 {
     "version": 2,
     "builds": [
@@ -61,7 +61,7 @@ Another issue occurred where images failed to display properly.
 ![webiste demo](README-images/no-images.png)
 
 To fix the issue, I added the following in `nuxt.config.js`:
-```
+```js
 image: {
     provider: 'static'
 },
