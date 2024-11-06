@@ -4,6 +4,8 @@
 
 This project is a **photo slideshow website** built using **Nuxt 2**, bringing together the skills I've learned over time.
 
+<br />
+
 ## Key Skills and Tools:
 
 - **Photography**: Featuring photos captured and edited by me.
@@ -49,6 +51,8 @@ My final working solution was to add a  `vercel.json` file in the root directory
 }
 ```
 For more details, see [Nuxt Vercel Builder](https://github.com/nuxt/vercel-builder/tree/main).
+
+<br />
 
 ### 2. Images Not Showing
 
